@@ -14,7 +14,11 @@ it(`AudioPlayer is rendered correctly`, () => {
   const tree = renderer.create(<AudioPlayer
     isPlaying={false}
     src={song.src}
-  />).toJSON();
+  />, {
+    createNodeMock: () => {
+      return {};
+    }
+  }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
