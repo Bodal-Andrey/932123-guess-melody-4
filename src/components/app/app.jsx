@@ -18,7 +18,7 @@ const ArtistQuestionScreenWrapped = withActivePlayer(ArtistQuestionScreen);
 
 class App extends PureComponent {
   _renderGameScreen() {
-    const {maxMistakes, mistakes, questions, onUserAnswer, onWelcomeButtonClick, step} = this.props;
+    const {maxMistakes, mistakes, questions, onUserAnswer, onWelcomeButtonClick, resetGame, step} = this.props;
     const question = questions[step];
 
     if (step === -1) {
@@ -33,7 +33,7 @@ class App extends PureComponent {
     if (mistakes >= maxMistakes) {
       return (
         <GameOverScreen
-          onReplayButtonClick={() => {}}
+          onReplayButtonClick={resetGame}
         />
       );
     }
@@ -43,7 +43,7 @@ class App extends PureComponent {
         <WinScreen
           questionsCount={questions.length}
           mistakesCount={mistakes}
-          onReplayButtonClick={() => {}}
+          onReplayButtonClick={resetGame}
         />
       );
     }
@@ -106,6 +106,7 @@ App.propTypes = {
   questions: PropTypes.array.isRequired,
   onUserAnswer: PropTypes.func.isRequired,
   onWelcomeButtonClick: PropTypes.func.isRequired,
+  resetGame: PropTypes.func.isRequired,
   step: PropTypes.number.isRequired,
 };
 
@@ -123,6 +124,9 @@ const mapDispatchToProps = (dispatch) => ({
   onUserAnswer(question, answer) {
     dispatch(ActionCreator.incrementMistake(question, answer));
     dispatch(ActionCreator.incrementStep());
+  },
+  resetGame() {
+    dispatch(ActionCreator.resetGame());
   },
 });
 
