@@ -208,7 +208,7 @@ describe(`Render App`, () => {
         mistakes: 3,
       },
       [NameSpace.USER]: {
-        authorizationStatus: AuthorizationStatus.AUTH,
+        authorizationStatus: AuthorizationStatus.NO_AUTH,
       },
     });
 
