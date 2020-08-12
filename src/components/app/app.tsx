@@ -1,16 +1,16 @@
-import React, {PureComponent} from "react";
+import *as React from "react";
 import PropTypes from "prop-types";
 import {Switch, Route, Router} from "react-router-dom";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../reducer/game/game.js";
-import {AuthorizationStatus} from "../../reducer/user/user.js";
-import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
-import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen.jsx";
-import AuthScreen from "../auth-screen/auth-screen.jsx";
-import GameScreen from "../game-screen/game-screen.jsx";
-import GameOverScreen from "../game-over-screen/game-over-screen.jsx";
-import WinScreen from "../win-screen/win-screen.jsx";
-import PrivateRoute from "../private-route/private-route.jsx";
+import {ActionCreator} from "../../reducer/game/game";
+import {AuthorizationStatus} from "../../reducer/user/user";
+import WelcomeScreen from "../welcome-screen/welcome-screen";
+import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen";
+import AuthScreen from "../auth-screen/auth-screen";
+import GameScreen from "../game-screen/game-screen";
+import GameOverScreen from "../game-over-screen/game-over-screen";
+import WinScreen from "../win-screen/win-screen";
+import PrivateRoute from "../private-route/private-route";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen.jsx";
 import {GameType} from "../../const.js";
 import withActivePlayer from "../../hocs/with-active-player/with-active-player.js";
@@ -25,7 +25,7 @@ import {AppRoute} from "../../const.js";
 const GenreQuestionScreenWrapped = withActivePlayer(withUserAnswer(GenreQuestionScreen));
 const ArtistQuestionScreenWrapped = withActivePlayer(ArtistQuestionScreen);
 
-class App extends PureComponent {
+class App extends React.PureComponent {
   _renderGameScreen() {
     const {authorizationStatus, maxMistakes, mistakes, questions, onUserAnswer, onWelcomeButtonClick, step} = this.props;
     const question = questions[step];
