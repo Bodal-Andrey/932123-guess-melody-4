@@ -1,9 +1,7 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import AuthScreen from "./auth-screen.jsx";
-
-
-const noop = () => {};
+import * as React from "react";
+import * as renderer from "react-test-renderer";
+import AuthScreen from "./auth-screen";
+import {noop} from "../../utils";
 
 it(`AuthScreen component render correctly`, () => {
   const tree = renderer.create(

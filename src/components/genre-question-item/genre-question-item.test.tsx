@@ -1,7 +1,7 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import GenreQuestionItem from "./genre-question-item.jsx";
-
+import * as React from "react";
+import * as renderer from "react-test-renderer";
+import GenreQuestionItem from "./genre-question-item";
+import {noop} from "../../utils";
 
 const answer = {
   src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
@@ -13,8 +13,8 @@ it(`GenreQuestionItem is rendered correctly`, () => {
     <GenreQuestionItem
       answer={answer}
       id={0}
-      onChange={() => {}}
-      renderPlayer={() => {}}
+      onChange={noop}
+      renderPlayer={() => null}
       userAnswer={false}
     />
   )).toJSON();
