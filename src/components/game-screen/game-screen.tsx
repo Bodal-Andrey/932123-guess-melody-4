@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {GameType} from "../../const";
@@ -32,17 +31,6 @@ const GameScreen = (props) => {
       {children}
     </section>
   );
-};
-
-
-GameScreen.propTypes = {
-  type: PropTypes.oneOf([GameType.ARTIST, GameType.GENRE]).isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired,
-  mistakes: PropTypes.number.isRequired,
-  goToWelcome: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
